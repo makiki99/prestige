@@ -39,7 +39,7 @@ function activatePrestige(id) {
 }
 
 function update() {
-	data.coins += getGain();
+	data.coins += getGain()/100;
 	localStorage.SHITPOST = JSON.stringify(data);
 }
 
