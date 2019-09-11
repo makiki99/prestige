@@ -1,6 +1,6 @@
 var data = {
 	coins: 0,
-	prestiges: [0,0,0,0,0,0,0,0,0,0,0]
+	prestiges: [0,0,0,0,0,0,0,0,0,0]
 };
 
 function getGain() {
@@ -14,6 +14,9 @@ function getGain() {
 function getRequirement(id) {
 	if (id === 0) {
 		return Math.floor(Math.pow(1+(Math.pow(0.95, data.prestiges[1])*0.5),data.prestiges[0])*10);
+	} else if (id === 9) {
+		return Math.floor(Math.pow(10, data.prestiges[id]))
+		
 	} else {
 		return Math.floor(Math.pow(1+(id*Math.pow(0.95, data.prestiges[id+1])),data.prestiges[id]))
 	}
