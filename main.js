@@ -1,6 +1,6 @@
 var data = {
 	coins: 0,
-	prestiges: [0,0,0,0,0,0,0,0,0,0]
+	prestiges: [0,0,0,0,0,0,0,0,0,0,0]
 };
 
 function getGain() {
