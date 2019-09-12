@@ -6,16 +6,16 @@ var data = {
 function getGain() {
 	var gain = 1;
 	gain*=(data.prestiges[0]+1)
-	gain*=(data.prestiges[0]+1)*(data.prestiges[1]/3+1)
-	gain*=(data.prestiges[0]+1)*(data.prestiges[1]/2+1)*(data.prestiges[2]/3+1)
-	gain*=(data.prestiges[1]+1)*(data.prestiges[2]/2+1)*(data.prestiges[3]/3+1)
-	gain*=(data.prestiges[2]+1)*(data.prestiges[3]/2+1)*(data.prestiges[4]/3+1)
-	gain*=(data.prestiges[3]+1)*(data.prestiges[4]/2+1)*(data.prestiges[5]/3+1)
-	gain*=(data.prestiges[4]+1)*(data.prestiges[5]/2+1)*(data.prestiges[6]/3+1)
-	gain*=(data.prestiges[5]+1)*(data.prestiges[6]/2+1)*(data.prestiges[7]/3+1)
-	gain*=(data.prestiges[6]+1)*(data.prestiges[7]/2+1)*(data.prestiges[8]/3+1)
-	gain*=(data.prestiges[7]+1)*(data.prestiges[8]/2+1)*(data.prestiges[9]/3+1)
-	gain*=(data.prestiges[8]+1)*(data.prestiges[9]/2+1)
+	gain*=(data.prestiges[0]+1)*(data.prestiges[1]+1)
+	gain*=(data.prestiges[0]+1)*(data.prestiges[1]+1)*(data.prestiges[2]+1)
+	gain*=(data.prestiges[1]+1)*(data.prestiges[2]+1)*(data.prestiges[3]+1)
+	gain*=(data.prestiges[2]+1)*(data.prestiges[3]+1)*(data.prestiges[4]+1)
+	gain*=(data.prestiges[3]+1)*(data.prestiges[4]+1)*(data.prestiges[5]+1)
+	gain*=(data.prestiges[4]+1)*(data.prestiges[5]+1)*(data.prestiges[6]+1)
+	gain*=(data.prestiges[5]+1)*(data.prestiges[6]+1)*(data.prestiges[7]+1)
+	gain*=(data.prestiges[6]+1)*(data.prestiges[7]+1)*(data.prestiges[8]+1)
+	gain*=(data.prestiges[7]+1)*(data.prestiges[8]+1)*(data.prestiges[9]+1)
+	gain*=(data.prestiges[8]+1)*(data.prestiges[9]+1)
 	gain*=(data.prestiges[9]+1)
 	return gain
 }
