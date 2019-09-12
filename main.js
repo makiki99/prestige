@@ -5,6 +5,8 @@ var data = {
 
 function getGain() {
 	var gain = 1;
+	gain*=(data.prestiges[0]/3+1)
+	gain*=(data.prestiges[0]/2+1)*(data.prestiges[1]/3+1)
 	gain*=(data.prestiges[0]+1)*(data.prestiges[1]/2+1)*(data.prestiges[2]/3+1)
 	gain*=(data.prestiges[1]+1)*(data.prestiges[2]/2+1)*(data.prestiges[3]/3+1)
 	gain*=(data.prestiges[2]+1)*(data.prestiges[3]/2+1)*(data.prestiges[4]/3+1)
