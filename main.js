@@ -41,9 +41,9 @@ function activatePrestige(id) {
 	draw();
 }
 function autoBuy() {
-	for (var i = 0; i < 10; i++) {
-	if (data.prestiges[2] >= 1) {
-		activatePrestige(0)
+	for (var i = 0; i < 8; i++) {
+	if (data.prestiges[i+2] >= 1) {
+		activatePrestige(i)
 	}
 	}
 }
@@ -55,7 +55,7 @@ function update() {
 function draw() {
 	document.getElementById("coins").innerHTML = Math.floor(data.coins);
 	document.getElementById("gain").innerHTML = getGain();
-	
+	autoBuy();
 	data.prestiges.forEach(function (el, i) {
 		document.getElementById("tier"+(i+1)+"cost").innerHTML = getRequirement(i);
 		document.getElementById("tier"+(i+1)+"a").innerHTML = el;
