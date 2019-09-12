@@ -15,6 +15,7 @@ function getGain() {
 	gain*=(data.prestiges[7]+1)*(data.prestiges[8]/2+1)*(data.prestiges[9]/3+1)
 	gain*=(data.prestiges[8]+1)*(data.prestiges[9]/2+1)
 	gain*=(data.prestiges[9]+1)
+	return gain
 }
 
 function getRequirement(id) {
