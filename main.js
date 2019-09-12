@@ -20,12 +20,12 @@ function getGain() {
 
 function getRequirement(id) {
 	if (id === 0) {
-		return Math.floor(Math.pow(1+(Math.pow(0.90, data.prestiges[1])*0.4),data.prestiges[0])*(10+data.prestiges[0]));
+		return Math.floor(Math.pow(1+(Math.pow(0.90, Math.sqrt(data.prestiges[1])*0.4),data.prestiges[0])*(10+data.prestiges[0]));
 	} else if (id === 9) {
 		return Math.floor(Math.pow(10, data.prestiges[id]+1))
 		
 	} else {
-		return Math.floor(Math.pow(1+((id+1)/2*Math.pow(0.8-id*0.05, data.prestiges[id+1])),data.prestiges[id]+1))
+		return Math.floor(Math.pow(1+((id+1)/2*Math.pow(0.8-id*0.05, Math.sqrt(data.prestiges[id+1]))),data.prestiges[id]+1))
 	}
 }
 
@@ -47,7 +47,11 @@ function activatePrestige(id) {
 	}
 	draw();
 }
-
+function autoBuy() {
+	if (data.prestiges[2] > 1) {
+		activatePrestige(0)
+	}
+}
 function update() {
 	data.coins += (getGain()/100);
 	localStorage.SHITPOST = JSON.stringify(data);
