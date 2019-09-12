@@ -62,6 +62,7 @@ function update() {
 function draw() {
 	document.getElementById("coins").innerHTML = Math.floor(data.coins);
 	document.getElementById("gain").innerHTML = getGain();
+	autoBuy();
 	data.prestiges.forEach(function (el, i) {
 		document.getElementById("tier"+(i+1)+"cost").innerHTML = getRequirement(i);
 		document.getElementById("tier"+(i+1)+"a").innerHTML = el;
