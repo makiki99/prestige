@@ -5,9 +5,10 @@ var data = {
 
 function getGain() {
 	var gain = 1;
-	data.prestiges.forEach(function (el) {
-		gain *= 1+Math.pow(el,4);
-	})
+	for (var i = 0; i < 10; i++;) {
+	     gain *= 1+ Math.pow(data.prestiges[i],3+i);
+	     
+	     }
 	return gain;
 }
 
