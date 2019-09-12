@@ -18,7 +18,7 @@ function getRequirement(id) {
 	} else if (id === 9) {
 		return Math.floor(Math.pow(10, data.prestiges[id]+1))
 	} else if (id === 1) {
-		return Math.floor(Math.pow(1+((id+1)/3.1*Math.pow(0.8-id*0.05, Math.sqrt(Math.pow(data.prestiges[id+1],1.5)))),data.prestiges[id]+1)/data.prestiges[id+1]+1))
+		return Math.floor(Math.pow(1+((id+1)/3.1*Math.pow(0.8-id*0.05, Math.sqrt(Math.pow(data.prestiges[id+1],1.5)))),data.prestiges[id]+1)/data.prestiges[id+1]+1)
 	} else {
 		return Math.floor(Math.pow(1+((id+1)/2.1*Math.pow(0.8-id*0.05, Math.sqrt(Math.pow(data.prestiges[id+1],1.5)))),data.prestiges[id]+1)/(Math.sqrt(data.prestiges[id+1])+1))
 	}
