@@ -5,19 +5,10 @@ var data = {
 
 function getGain() {
 	var gain = 1;
-	gain*=(data.prestiges[0]+1)
-	gain*=(data.prestiges[0]+1)*(data.prestiges[1]+1)
-	gain*=(data.prestiges[0]+1)*(data.prestiges[1]+1)*(data.prestiges[2]+1)
-	gain*=(data.prestiges[1]+1)*(data.prestiges[2]+1)*(data.prestiges[3]+1)
-	gain*=(data.prestiges[2]+1)*(data.prestiges[3]+1)*(data.prestiges[4]+1)
-	gain*=(data.prestiges[3]+1)*(data.prestiges[4]+1)*(data.prestiges[5]+1)
-	gain*=(data.prestiges[4]+1)*(data.prestiges[5]+1)*(data.prestiges[6]+1)
-	gain*=(data.prestiges[5]+1)*(data.prestiges[6]+1)*(data.prestiges[7]+1)
-	gain*=(data.prestiges[6]+1)*(data.prestiges[7]+1)*(data.prestiges[8]+1)
-	gain*=(data.prestiges[7]+1)*(data.prestiges[8]+1)*(data.prestiges[9]+1)
-	gain*=(data.prestiges[8]+1)*(data.prestiges[9]+1)
-	gain*=(data.prestiges[9]+1)
-	return gain
+	data.prestiges.forEach(function (el) {
+		gain *= 1+Math.pow(el,3);
+	})
+	return gain;
 }
 
 function getRequirement(id) {
