@@ -22,12 +22,12 @@ function getGain() {
 
 function getRequirement(id) {
 	if (id === 0) {
-		return Math.floor(Math.pow(1+(Math.pow(0.90, Math.sqrt(Math.pow(data.prestiges[1],1.2)))*0.4),data.prestiges[0])*(10+data.prestiges[0])/(data.prestiges[1]+1));
+		return Math.floor(Math.pow(1+(Math.pow(0.90, Math.sqrt(Math.pow(data.prestiges[1],1.2)))*0.4),data.prestiges[0])*(10+data.prestiges[0])/(Math.sqrt(data.prestiges[1])+1));
 	} else if (id === 9) {
 		return Math.floor(Math.pow(10, data.prestiges[id]+1))
 		
 	} else {
-		return Math.floor(Math.pow(1+((id+1)/2.1*Math.pow(0.8-id*0.05, Math.sqrt(Math.pow(data.prestiges[id+1],1.5)))),data.prestiges[id]+1)/(data.prestiges[id+1]+1))
+		return Math.floor(Math.pow(1+((id+1)/2.1*Math.pow(0.8-id*0.05, Math.sqrt(Math.pow(data.prestiges[id+1],1.5)))),data.prestiges[id]+1)/(Math.sqrt(data.prestiges[1])+1))
 	}
 }
 
