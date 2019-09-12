@@ -25,7 +25,7 @@ function getRequirement(id) {
 		return Math.floor(Math.pow(10, data.prestiges[id]+1))
 		
 	} else {
-		return Math.floor(Math.pow(1+(id*Math.pow(0.8-id*0.05, data.prestiges[id+1])),data.prestiges[id]+1))
+		return Math.floor(Math.pow(1+(Math.pow(0.8-id*0.05, data.prestiges[id+1])),data.prestiges[id]+1))
 	}
 }
 
