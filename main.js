@@ -42,12 +42,12 @@ function activatePrestige(id) {
 }
 
 function update() {
-	data.coins += Math.floor((getGain()/100)+1);
+	data.coins += (getGain()/100);
 	localStorage.SHITPOST = JSON.stringify(data);
 }
 
 function draw() {
-	document.getElementById("coins").innerHTML = data.coins;
+	document.getElementById("coins").innerHTML = Math.floor(data.coins);
 	document.getElementById("gain").innerHTML = getGain();
 	data.prestiges.forEach(function (el, i) {
 		document.getElementById("tier"+(i+1)+"cost").innerHTML = getRequirement(i);
