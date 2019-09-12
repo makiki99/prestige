@@ -6,7 +6,7 @@ var data = {
 function getGain() {
 	var gain = 1;
 	data.prestiges.forEach(function (el) {
-		gain *= 1+Math.pow(el,3);
+		gain *= 1+Math.pow(el,4);
 	})
 	return gain;
 }
@@ -55,7 +55,7 @@ function draw() {
 		document.getElementById("tier"+(i+1)+"cost").innerHTML = getRequirement(i);
 		}
 		document.getElementById("tier"+(i+1)+"a").innerHTML = el;
-		document.getElementById("tier"+(i+1)+"mul").innerHTML = "x"+(Math.pow(el, 3)+1);
+		document.getElementById("tier"+(i+1)+"mul").innerHTML = "x"+(Math.pow(el, 4)+1);
 		if (canActivatePrestige(i)) {
 			document.getElementById("tier"+(i+1)+"btn").disabled = false;
 		} else {
