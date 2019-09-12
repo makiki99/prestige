@@ -20,7 +20,7 @@ function getGain() {
 
 function getRequirement(id) {
 	if (id === 0) {
-		return Math.floor(Math.pow(1+(Math.pow(0.90, data.prestiges[1])*0.4),data.prestiges[0])*(10+data.prestiges[0]);
+		return Math.floor(Math.pow(1+(Math.pow(0.90, data.prestiges[1])*0.4),data.prestiges[0])*(10+data.prestiges[0]));
 	} else if (id === 9) {
 		return Math.floor(Math.pow(10, data.prestiges[id]+1))
 		
