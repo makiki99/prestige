@@ -50,8 +50,10 @@ function activatePrestige(id) {
 	draw();
 }
 function autoBuy() {
+	for (var i = 0; i < 10; i++) {
 	if (data.prestiges[2] >= 1) {
 		activatePrestige(0)
+	}
 	}
 }
 function update() {
