@@ -13,12 +13,12 @@ function getGain() {
 
 function getRequirement(id) {
 	if (id === 0) {
-		return Math.floor(Math.pow(1+(Math.pow(0.95, data.prestiges[1])*0.5),data.prestiges[0])*10);
+		return Math.floor(Math.pow(1+(Math.pow(0.90, data.prestiges[1])*0.5),data.prestiges[0])*10);
 	} else if (id === 9) {
 		return Math.floor(Math.pow(10, data.prestiges[id]+1))
 		
 	} else {
-		return Math.floor(Math.pow(1+(id*Math.pow(0.9, data.prestiges[id+1])),data.prestiges[id]+1))
+		return Math.floor(Math.pow(1+(id*Math.pow(0.9-id*0.05, data.prestiges[id+1])),data.prestiges[id]+1))
 	}
 }
 
