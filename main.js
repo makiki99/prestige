@@ -46,7 +46,7 @@ function update() {
 }
 
 function draw() {
-	document.getElementById("coins").innerHTML = Math.floor(data.coins);
+	document.getElementById("coins").innerHTML = "e"+Math.floor(Math.log10(Math.floor(data.coins)*100)/100;
 	document.getElementById("gain").innerHTML = getGain();
 	data.prestiges.forEach(function (el, i) {
 		document.getElementById("tier"+(i+1)+"cost").innerHTML = getRequirement(i);
