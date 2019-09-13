@@ -6,7 +6,7 @@ var data = {
 function getGain() {
 	var gain = 1;
 	for (var i = 0; i < 10; i++) 
-	     gain *= 1+ Math.sqrt(Math.pow(2,data.prestiges[i]));
+	     gain *= 1+Math.pow(data.prestiges[i], 4);
 	     
 	     }
 	return gain;
