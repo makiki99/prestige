@@ -5,8 +5,8 @@ var data = {
 
 function getGain() {
 	var gain = 1;
-	for (var i = 0; i < 10; i++) {
-	     gain *= 1+ Math.pow(Math.pow(2,data.prestiges[i]), 0.9);
+	for (var i = 0; i < 10; i++) 
+	     gain *= 1+ Math.pow(Math.pow(2,data.prestiges[i]), 0.5);
 	     
 	     }
 	return gain;
