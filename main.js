@@ -1,6 +1,13 @@
 var data = {
 	coins: 0,
-	prestiges: [0,0,0,0,0,0,0,0,0,0]
+	prestiges: {
+		template:["amount", "upgrade1", "upgrade2", "upgrade3", "amountBought"],
+		t1:[0,0,0,0,0],
+		t2:[0,0,0,0,0],
+		t3:[0,0,0,0,0],
+		t4:[0,0,0,0,0],
+		t5:[0,0,0,0,0],
+	}
 };
 
 function getGain() {
