@@ -6,3 +6,9 @@ body {
 table {
 	width: inherit;
 }
+button {
+	height: 64px;
+	width: 64px;
+	padding: 1px;
+	margin: 5px;
+}
