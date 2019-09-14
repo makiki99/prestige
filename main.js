@@ -24,6 +24,39 @@ function getGain() {
 	return gain;
 }
 
+function getUpgradeRequirement(tier, id) {
+	if (id > 1) {
+	switch(tier) {
+		case 0:
+			return Math.pow(2, data.prestiges.t2[id])
+		break
+		case 1:
+			return Math.pow(2, data.prestiges.t3[id])
+		break
+		case 2:
+			return Math.pow(2, data.prestiges.t4[id])
+		break
+		case 3:
+			return Math.pow(2, data.prestiges.t5[id])
+		break
+		case 4:
+			return Math.pow(2, data.prestiges.t6[id])
+		break
+		case 5:
+			return Math.pow(2, data.prestiges.t7[id])
+		break
+		case 6:
+			return Math.pow(2, data.prestiges.t8[id])
+		break
+		case 7:
+			return Math.pow(2, data.prestiges.t9[id])
+		break
+		case 8:
+			return Math.pow(2, data.prestiges.t10[id])
+		break
+	}
+	}
+}
 function getRequirement(id) {
 	if (id === 0) {
 		return Math.floor(Math.pow(1+(Math.pow(0.90, Math.sqrt(Math.pow(data.prestiges[1],1.2)))*0.4),data.prestiges[0])*(10+data.prestiges[0])/(Math.sqrt(data.prestiges[1])+1));
@@ -44,6 +77,20 @@ function canActivatePrestige(id) {
 	}
 }
 
+function prestigeTab(id) {
+	var classList = document.getElementsByClassName("tab");
+	for(var i = 0; i < classList.length; i++) {
+		classList[i].style.display = "none"
+	}
+			document.getElementById(id).style.display = ""
+	
+	
+}
+prestigeTab("t1");
+function upgrade(tier,id) {
+	
+	
+}
 function activatePrestige(id) {
 	if (canActivatePrestige(id)) {
 			data.coins = 0;
@@ -83,16 +130,6 @@ window.addEventListener("load",function () {
 		data = JSON.parse(localStorage.SHITPOST)
 	}
 	draw();
-	for (var i = 0; i < 10; i++) {
-		document.getElementById("tier"+(i+1)+"btn").addEventListener(
-			"click",
-			(function(n) {
-				return (function () {
-					activatePrestige(n);
-				})
-			}(i))
-		);
-	}
 	setInterval(function () {
 		update();
 		draw();
