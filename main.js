@@ -19,9 +19,9 @@ function getUpgradeRequirement(tier, id) {
 }
 function getRequirement(id) {
 	if (id < 9 && id > 0) {
-		return Math.floor(Math.pow(id+1-getUpgradeEffect(id, 1), (data.prestiges[id][4]+1)/1.2));
+		return Math.floor(Math.pow(id+1-getUpgradeEffect(id, 1), (data.prestiges[id][4]+1)));
 	}
-	if (id == 0) return Math.floor(Math.pow(1.5-getUpgradeEffect(id, 1), data.prestiges[id][4]/1.2))*10;
+	if (id == 0) return Math.floor(Math.pow(1.5-getUpgradeEffect(id, 1), data.prestiges[id][4]))*10;
 	if (id == 9)  return Math.floor(Math.pow(id+1, data.prestiges[id][4])+1);
 }
 
@@ -48,28 +48,28 @@ function getUpgradeEffect(tier, id) {
 				return 0.04*data.prestiges[0][1]; 
 			break
 			case 1:
-				return 0.045*data.prestiges[1][1];
+				return 0.09*data.prestiges[1][1];
 			break
 			case 2:
-				return 0.063*data.prestiges[2][1];
+				return 0.19*data.prestiges[2][1];
 			break
 			case 3:
-				return 0.0725*data.prestiges[3][1];
+				return 0.29*data.prestiges[3][1];
 			break
 			case 4:
-				return 0.078*data.prestiges[4][1];
+				return 0.39*data.prestiges[4][1];
 			break
 			case 5:
-				return 0.0816*data.prestiges[5][1];
+				return 0.49*data.prestiges[5][1];
 			break
 			case 6:
-				return 0.0842*data.prestiges[6][1];
+				return 0.59*data.prestiges[6][1];
 			break
 			case 7:
-				return 0.08625*data.prestiges[7][1];
+				return 0.69*data.prestiges[7][1];
 			break
 			case 8:
-				return 0.0877*data.prestiges[8][1];
+				return 0.79*data.prestiges[8][1];
 			break
 		}
 	} else {
