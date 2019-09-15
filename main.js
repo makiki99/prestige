@@ -134,6 +134,9 @@ function draw() {
 }
 
 window.addEventListener("load",function () {
+	if (!data.upgrades) {
+		data.upgrades = [false,false,false,false]
+	}
 	if (localStorage.SHITPOST) {
 		data = JSON.parse(localStorage.SHITPOST)
 	}
