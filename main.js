@@ -87,6 +87,7 @@ function activatePrestige(id) {
 			data.coins = 0;
 			for (var i = 0; i < id; i++) {
 				data.prestiges[i][0] = 0;
+				data.prestiges[i][4] = 0;
 			}
 			data.prestiges[id][4]++;
 			data.prestiges[id][0]+=getUpgradeEffect(id, 3)
