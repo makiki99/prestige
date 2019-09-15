@@ -1,61 +1,23 @@
 var data = {
 	coins: 0,
-	prestiges: {
-		template:["amount", "upgrade1", "upgrade2", "upgrade3", "amountBought"],
-		t1:[0,0,0,0,0],
-		t2:[0,0,0,0,0],
-		t3:[0,0,0,0,0],
-		t4:[0,0,0,0,0],
-		t5:[0,0,0,0,0],
-		t6:[0,0,0,0,0],
-		t7:[0,0,0,0,0],
-		t8:[0,0,0,0,0],
-		t9:[0,0,0,0,0],
-		t10:[0,0,0,0,0],
-	}
+	template:["Amount","First upgrade","Second upgrade","Third Upgrade","Amount bought"],
+	prestiges:[[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
 };
 
 function getGain() {
 	var gain = 1;
 	for (var i = 0; i < 10; i++) {
-	     gain *= 1+Math.pow(data.prestiges[i], 4+i);
+	     gain *= 1+Math.pow(data.prestiges[i][0], 4+i);
 	     
 	     }
 	return gain;
 }
 
 function getUpgradeRequirement(tier, id) {
-	if (id > 1) {
-	switch(tier) {
-		case 0:
-			return Math.pow(2, data.prestiges.t2[id])
-		break
-		case 1:
-			return Math.pow(2, data.prestiges.t3[id])
-		break
-		case 2:
-			return Math.pow(2, data.prestiges.t4[id])
-		break
-		case 3:
-			return Math.pow(2, data.prestiges.t5[id])
-		break
-		case 4:
-			return Math.pow(2, data.prestiges.t6[id])
-		break
-		case 5:
-			return Math.pow(2, data.prestiges.t7[id])
-		break
-		case 6:
-			return Math.pow(2, data.prestiges.t8[id])
-		break
-		case 7:
-			return Math.pow(2, data.prestiges.t9[id])
-		break
-		case 8:
-			return Math.pow(2, data.prestiges.t10[id])
-		break
+	if (id == 1) {
+		
 	}
-	}
+	else return Math.pow(2, data.prestiges[tier+1][id]);
 }
 function getRequirement(id) {
 	if (id === 0) {
