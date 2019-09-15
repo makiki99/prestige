@@ -12,14 +12,20 @@ function getGain() {
 	     }
 	return gain;
 }
-
+function permanentUpgrade(id) {
+	if (id == 0 && data.prestiges[0][0] > 5000+(2000*((data.upgrades[0]-0.9)*10))) {
+		data.prestiges[0][0] = 0;
+		data.prestiges[0][4] = 0;
+		data.upgrades[0] += 0.1
+	}
+}
 function getUpgradeRequirement(tier, id) {
 	if (id == 1 && data.prestiges[tier][1] > 10) return "Upgrade maxxed!";
 	else return Math.pow(2, data.prestiges[tier][id]);
 }
 function getRequirement(id) {
 	if (id < 9 && id > 0) {
-		return Math.floor(Math.pow(id+1-getUpgradeEffect(id, 1), (data.prestiges[id][4]+1)));
+		return Math.floor(Math.pow(id+1-getUpgradeEffect(id, 1), (data.prestiges[id][4]+1)*data.upgrades[0]));
 	}
 	if (id == 0) return Math.floor(Math.pow(1.5-getUpgradeEffect(id, 1), data.prestiges[id][4]))*10;
 	if (id == 9)  return Math.floor(Math.pow(id+1, data.prestiges[id][4])+1);
@@ -110,6 +116,8 @@ function draw() {
 		document.getElementById("tier"+(i+1)+"cost").innerHTML = getRequirement(i);
 		}
 		if (i < 9) {
+		document.getElementById("permUpgrade1Cost").innerHTML = 5000+(2000*((data.upgrades[0]-0.9)*10))
+		document.getElementById("permUpgrade1Pow").innerHTML = data.upgrades[0]
 		document.getElementById("tier"+(i+1)+"up1cost").innerHTML = getUpgradeRequirement(i, 1);
 		document.getElementById("tier"+(i+1)+"up2cost").innerHTML = getUpgradeRequirement(i, 2);
 		document.getElementById("tier"+(i+1)+"up3cost").innerHTML = getUpgradeRequirement(i, 3);
@@ -135,7 +143,7 @@ function draw() {
 
 window.addEventListener("load",function () {
 	if (!data.upgrades) {
-		data.upgrades = [false,false,false,false]
+		data.upgrades = [1]
 	}
 	if (localStorage.SHITPOST) {
 		data = JSON.parse(localStorage.SHITPOST)
