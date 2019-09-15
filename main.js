@@ -18,9 +18,10 @@ function getUpgradeRequirement(tier, id) {
 	else return Math.pow(2, data.prestiges[tier+1][id]);
 }
 function getRequirement(id) {
-	if (id < 9) {
-		return Math.floor(Math.pow(id+1-getUpgradeEffect(id, 1), data.prestige[id][4]);
+	if (id < 9 && id > 0) {
+		return Math.floor(Math.pow(id+1-getUpgradeEffect(id, 1), data.prestige[id][4]));
 	}
+	if (id == 0) return Math.floor(Math.pow(1.5-getUpgradeEffect(id, 1), data.prestige[id][4]));
 	if (id == 9)  return Math.floor(Math.pow(id+1, data.prestige[id][4]));
 }
 
@@ -104,7 +105,11 @@ function draw() {
 		document.getElementById("tier"+(i+1)+"cost").innerHTML = getRequirement(i);
 		}
 		document.getElementById("tier"+(i+1)+"a").innerHTML = el;
-		document.getElementById("tier"+(i+1)+"mul").innerHTML = "x"+Math.floor(Math.sqrt(Math.pow(2,data.prestiges)));
+		document.getElementById("tier"+(i+1)+"gain").innerHTML = getUpgradeEffect(i, 3);
+		document.getElementById("tier"+(i+1)+"gain2").innerHTML = "+"+getUpgradeEffect(i, 3)-1;
+		document.getElementById("tier"+(i+1)+"scal").innerHTML = "-"+getUpgradeEffect(i, 1);
+		document.getElementById("tier"+(i+1)+"expmul").innerHTML = "^"+getUpgradeEffect(i, 1);
+		document.getElementById("tier"+(i+1)+"mul").innerHTML = "x"+1+Math.pow(data.prestiges[i][0], getUpgradeEffect(i, 2));
 		if (canActivatePrestige(i)) {
 			document.getElementById("tier"+(i+1)+"btn").disabled = false;
 		} else {
