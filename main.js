@@ -117,7 +117,7 @@ function draw() {
 		document.getElementById("tier"+(i+1)+"gain2").innerHTML = "+"+getUpgradeEffect(i, 3)-1;
 		document.getElementById("tier"+(i+1)+"scal").innerHTML = "-"+getUpgradeEffect(i, 1);
 		document.getElementById("tier"+(i+1)+"expmul").innerHTML = "^"+getUpgradeEffect(i, 2);
-		document.getElementById("tier"+(i+1)+"mul").innerHTML = "x"+(1+Math.pow(data.prestiges[i][0], getUpgradeEffect(i, 2)));
+		document.getElementById("tier"+(i+1)+"mul").innerHTML = "x"+(Math.floor(1+Math.pow(data.prestiges[i][0], getUpgradeEffect(i, 2))));
 		document.getElementById("tier"+(i+1)+"a").innerHTML = data.prestiges[i][0]
 		}else {
 			document.getElementById("tier"+(i+1)+"mul").innerHTML = el+1;
