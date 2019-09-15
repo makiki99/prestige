@@ -90,7 +90,7 @@ function activatePrestige(id) {
 				data.prestiges[i][0] = 0;
 				data.prestiges[i][4] = 0;
 			}
-			data.prestiges[id][4]++;
+			data.prestiges[id][4]+=1;
 			data.prestiges[id][0]+=getUpgradeEffect(id, 3)
 	}
 	draw();
