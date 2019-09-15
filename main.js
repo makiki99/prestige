@@ -29,7 +29,7 @@ function canActivatePrestige(id) {
 	if (id===0) {
 		return (data.coins >= getRequirement(0));
 	} else {
-		return (data.prestiges[id-1] >= getRequirement(id));
+		return (data.prestiges[id-1][0] >= getRequirement(id));
 	}
 }
 
