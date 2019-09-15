@@ -75,7 +75,7 @@ function getUpgradeEffect(tier, id) {
 	} else {
 		switch(id) {
 			case 2:
-				return 1+(data.prestiges[tier][2]*(tier+1)/10); 
+				return 1+(data.prestiges[tier][2]*(tier+2)/10); 
 			break
 			case 3:
 				return (data.prestiges[tier][3]*(tier+1))+1; 
