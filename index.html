@@ -23,8 +23,17 @@
 			<td><button onclick="prestigeTab(t10)" class="p" id="tier10btn">Final Prestige<br>Req:<span id="tier10cost">0</span> Tier IX</button></td>
 		</tr>
 	</table>
-	<div id="t1">
+	<div id="t1" class="ptab">
 		
 	</div>
 </body>
+	<script>
+		function prestigeTab(t) {
+	var classList = document.getElementsByClassName("ptab");
+	for(var i = 0; i < classList.length; i++) {
+		classList[i].style.display = "none"
+	}
+			document.getElementById(t).style.display = ""
+}
+	</script>
 </html>
