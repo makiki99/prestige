@@ -34,7 +34,7 @@ function canActivatePrestige(id) {
 }
 
 function upgrade(tier,id) {
-	if (data.prestiges[tier+1][0] > getUpgradeRequirement(tier,id)) {
+	if (data.prestiges[tier+1][0] >= getUpgradeRequirement(tier,id)) {
 		data.prestiges[tier+1][0] -= getUpgradeRequirement(tier,id)
 		data.prestiges[tier][id]++;
 	}
