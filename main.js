@@ -40,7 +40,7 @@ function canActivatePrestige(id) {
 }
 
 function prestigeTab(id) {
-	var classList = document.getElementsByClassName("tab");
+	var classList = document.getElementsByClassName("p");
 	for(var i = 0; i < classList.length; i++) {
 		classList[i].style.display = "none"
 	}
