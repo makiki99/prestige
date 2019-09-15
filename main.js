@@ -27,7 +27,7 @@ function getRequirement(id) {
 	if (id < 9 && id > 0) {
 		return Math.floor(Math.pow(id+1-getUpgradeEffect(id, 1), (data.prestiges[id][4]+1)*data.upgrades[0]));
 	}
-	if (id == 0) return Math.floor(Math.pow(1.5-getUpgradeEffect(id, 1), data.prestiges[id][4]))*10;
+	if (id == 0) return Math.floor(Math.pow(1.5-getUpgradeEffect(id, 1), data.prestiges[id][4]*data.upgrades[0]))*10;
 	if (id == 9)  return Math.floor(Math.pow(id+1, data.prestiges[id][4])+1);
 }
 
