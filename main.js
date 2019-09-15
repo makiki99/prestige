@@ -34,7 +34,10 @@ function canActivatePrestige(id) {
 }
 
 function upgrade(tier,id) {
-	if (data.prestiges[tier+1][0] > getUpgradeRequirement(tier,id)) data.prestiges[tier][id]++;
+	if (data.prestiges[tier+1][0] > getUpgradeRequirement(tier,id)) {
+		data.prestiges[tier+1][0] -= getUpgradeRequirement(tier,id)
+		data.prestiges[tier][id]++;
+	}
 }
 
 function getUpgradeEffect(tier, id) {
@@ -104,12 +107,22 @@ function draw() {
 		} else {
 		document.getElementById("tier"+(i+1)+"cost").innerHTML = getRequirement(i);
 		}
-		document.getElementById("tier"+(i+1)+"a").innerHTML = el;
+		if (i < 9) {
+		document.getElementById("tier"+(i+1)+"up1cost").innerHTML = getUpgradeRequirement(i, 1);
+		document.getElementById("tier"+(i+1)+"up2cost").innerHTML = getUpgradeRequirement(i, 2);
+		document.getElementById("tier"+(i+1)+"up3cost").innerHTML = getUpgradeRequirement(i, 3);
 		document.getElementById("tier"+(i+1)+"gain").innerHTML = getUpgradeEffect(i, 3);
 		document.getElementById("tier"+(i+1)+"gain2").innerHTML = "+"+getUpgradeEffect(i, 3)-1;
 		document.getElementById("tier"+(i+1)+"scal").innerHTML = "-"+getUpgradeEffect(i, 1);
 		document.getElementById("tier"+(i+1)+"expmul").innerHTML = "^"+getUpgradeEffect(i, 1);
 		document.getElementById("tier"+(i+1)+"mul").innerHTML = "x"+1+Math.pow(data.prestiges[i][0], getUpgradeEffect(i, 2));
+		document.getElementById("tier"+(i+1)+"a").innerHTML = el;
+		}else {
+			document.getElementById("tier"+(i+1)+"mul").innerHTML = el;
+			document.getElementById("tier"+(i+1)+"a").innerHTML = el;
+		}
+		
+		
 		if (canActivatePrestige(i)) {
 			document.getElementById("tier"+(i+1)+"btn").disabled = false;
 		} else {
