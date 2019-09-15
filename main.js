@@ -104,6 +104,16 @@ function activatePrestige(id) {
 function update() {
 	data.coins += (getGain()/100);
 	localStorage.SHITPOST = JSON.stringify(data);
+   for (var i = 0; i < 8; i++) {
+    if (data.prestiges[i+2][0] >= 1) {
+        activatePrestige(i)
+        upgrade(i, 1)
+        upgrade(i,2)
+        upgrade(i,3)
+    }
+    }
+
+
 }
 
 function draw() {
