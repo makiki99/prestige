@@ -7,7 +7,7 @@ var data = {
 function getGain() {
 	var gain = 1;
 	for (var i = 0; i < 10; i++) {
-	     gain *= 1+Math.pow(data.prestiges[i][0], 4+i);
+	     gain *= 1+Math.pow(data.prestiges[i][0], getUpgradeEffect(i, 2));
 	     
 	     }
 	return gain;
@@ -18,15 +18,10 @@ function getUpgradeRequirement(tier, id) {
 	else return Math.pow(2, data.prestiges[tier+1][id]);
 }
 function getRequirement(id) {
-	if (id === 0) {
-		return Math.floor(Math.pow(1+(Math.pow(0.90, Math.sqrt(Math.pow(data.prestiges[1],1.2)))*0.4),data.prestiges[0])*(10+data.prestiges[0])/(Math.sqrt(data.prestiges[1])+1));
-	} else if (id === 9) {
-		return Math.floor(Math.pow(10, data.prestiges[id]+1))
-	} else if (id === 1) {
-		return Math.floor(Math.pow(1+((id+1)/3.1*Math.pow(0.8-id*0.05, Math.pow(Math.pow(data.prestiges[id+1],1.5),0.7))),data.prestiges[id]+1)/data.prestiges[id+1]+1)
-	} else {
-		return Math.floor(Math.pow(1+((id+1)/2.1*Math.pow(0.8-id*0.05, Math.pow(Math.pow(data.prestiges[id+1],1.5),0.7))),data.prestiges[id]+1)/(Math.sqrt(data.prestiges[id+1])+1))
+	if (id < 9) {
+		return Math.floor(Math.pow(id+1-getUpgradeEffect(id, 1), data.prestige[id][4]);
 	}
+	if (id == 9)  return Math.floor(Math.pow(id+1, data.prestige[id][4]));
 }
 
 function canActivatePrestige(id) {
@@ -36,9 +31,11 @@ function canActivatePrestige(id) {
 		return (data.prestiges[id-1] >= getRequirement(id));
 	}
 }
+
 function upgrade(tier,id) {
 	if (data.prestiges[tier+1][0] > getUpgradeRequirement(tier,id)) data.prestiges[tier][id]++;
 }
+
 function getUpgradeEffect(tier, id) {
 	if (id == 1) {
 		switch(tier) {
@@ -87,7 +84,8 @@ function activatePrestige(id) {
 			for (var i = 0; i < id; i++) {
 				data.prestiges[i] = 0;
 			}
-			data.prestiges[id]++;
+			data.prestiges[id][4]++;
+			data.prestiges[id][0]+=getUpgradeEffect(id, 3)
 	}
 	draw();
 }
