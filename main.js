@@ -14,7 +14,7 @@ function getGain() {
 }
 
 function getUpgradeRequirement(tier, id) {
-	if (id == 1 && data.prestiges[tier][1] < 10) return "Upgrade maxxed!";
+	if (id == 1 && data.prestiges[tier][1] < 10*(tier+1)) return "Upgrade maxxed!";
 	else return Math.pow(2, data.prestiges[tier+1][id]);
 }
 function getRequirement(id) {
@@ -38,7 +38,48 @@ function canActivatePrestige(id) {
 }
 function upgrade(tier,id) {
 	if (data.prestiges[tier+1][0] > getUpgradeRequirement(tier,id)) data.prestiges[tier][id]++;
-	
+}
+function getUpgradeEffect(tier, id) {
+	if (id == 1) {
+		switch(tier) {
+			case 0:	
+				return 0.04*data.prestiges[0][1]; 
+			break
+			case 1:
+				return 0.045*data.prestiges[1][1];
+			break
+			case 2:
+				return 0.063*data.prestiges[2][1];
+			break
+			case 3:
+				return 0.0725*data.prestiges[3][1];
+			break
+			case 4:
+				return 0.078*data.prestiges[4][1];
+			break
+			case 5:
+				return 0.0816*data.prestiges[5][1];
+			break
+			case 6:
+				return 0.0842*data.prestiges[6][1];
+			break
+			case 7:
+				return 0.08625*data.prestiges[7][1];
+			break
+			case 8:
+				return 0.0877*data.prestiges[8][1];
+			break
+		}
+	} else {
+		switch(id) {
+			case 2:
+				return 1+(data.prestiges[tier][2]/10); 
+			break
+			case 3:
+				return data.prestiges[tier][3]+1; 
+			break
+	}
+	}
 }
 function activatePrestige(id) {
 	if (canActivatePrestige(id)) {
