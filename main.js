@@ -15,7 +15,7 @@ function getGain() {
 
 function getUpgradeRequirement(tier, id) {
 	if (id == 1 && data.prestiges[tier][1] > 10*(tier+1)) return "Upgrade maxxed!";
-	else return Math.pow(2, data.prestiges[tier+1][id]);
+	else return Math.pow(2, data.prestiges[tier][id]);
 }
 function getRequirement(id) {
 	if (id < 9 && id > 0) {
