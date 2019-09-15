@@ -14,15 +14,15 @@ function getGain() {
 }
 
 function getUpgradeRequirement(tier, id) {
-	if (id == 1 && data.prestiges[tier][1] < 10*(tier+1)) return "Upgrade maxxed!";
+	if (id == 1 && data.prestiges[tier][1] > 10*(tier+1)) return "Upgrade maxxed!";
 	else return Math.pow(2, data.prestiges[tier+1][id]);
 }
 function getRequirement(id) {
 	if (id < 9 && id > 0) {
-		return Math.floor(Math.pow(id+1-getUpgradeEffect(id, 1), data.prestiges[id][4]));
+		return Math.floor(Math.pow(id+1-getUpgradeEffect(id, 1), data.prestiges[id][4])+1);
 	}
-	if (id == 0) return Math.floor(Math.pow(1.5-getUpgradeEffect(id, 1), data.prestiges[id][4]));
-	if (id == 9)  return Math.floor(Math.pow(id+1, data.prestiges[id][4]));
+	if (id == 0) return Math.floor(Math.pow(1.5-getUpgradeEffect(id, 1), data.prestiges[id][4])+1)*10;
+	if (id == 9)  return Math.floor(Math.pow(id+1, data.prestiges[id][4])+1);
 }
 
 function canActivatePrestige(id) {
