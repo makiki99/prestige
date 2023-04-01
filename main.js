@@ -5,6 +5,8 @@ var data = {
 
 var metaBonus = 1;
 
+var ascends = 0;
+
 function resetCheck() {
     if (localStorage.RESET_1) {
         data = {
@@ -31,7 +33,7 @@ function getPPBonus() {
 function getGain() {
 	var gain = 1;
 	data.prestiges.forEach(function (el) {
-		gain *= 1+el;
+		gain *= 1+el*(ascends+1);
 	});
 	return gain*metaBonus*getPPBonus();
 }
@@ -79,7 +81,7 @@ function draw() {
 	data.prestiges.forEach(function (el, i) {
 		document.getElementById("tier"+(i+1)+"cost").innerHTML = getRequirement(i);
 		document.getElementById("tier"+(i+1)+"a").innerHTML = el;
-		document.getElementById("tier"+(i+1)+"mul").innerHTML = "x"+(el+1);
+		document.getElementById("tier"+(i+1)+"mul").innerHTML = "x"+(el*(ascends+1)+1);
 		if (canActivatePrestige(i)) {
 			document.getElementById("tier"+(i+1)+"btn").disabled = false;
 		} else {
@@ -94,6 +96,9 @@ window.addEventListener("load",function () {
 	}
 	if (localStorage.META) {
 		metaBonus = JSON.parse(localStorage.META).multiForOthers;
+	}
+	if (localStorage.TRUE_PRESTIGE) {
+		ascends = JSON.parse(localStorage.TRUE_PRESTIGE).ascends;
 	}
 	draw();
 	for (var i = 0; i < 10; i++) {
